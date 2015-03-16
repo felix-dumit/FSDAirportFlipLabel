@@ -1,0 +1,14 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'FSDAirportFlipLabel', :exclusive => true do
+  pod "FSDAirportFlipLabel", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "FSDAirportFlipLabel", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+  pod 'FBSnapshotTestCase'
+  pod 'Expecta+Snapshots'
+end
