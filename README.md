@@ -1,13 +1,13 @@
 # FSDAirportFlipLabel
 
-<!--[![CI Status](http://img.shields.io/travis/Felix Dumit/FSDAirportFlipLabel.svg?style=flat)](https://travis-ci.org/Felix Dumit/FSDAirportFlipLabel)-->
+<!--[![CI Status](http://img.shields.io/travis/felix-dumit/FSDAirportFlipLabel.svg?style=flat)](https://travis-ci.org/felix-dumit/FSDAirportFlipLabel)-->
 [![Version](https://img.shields.io/cocoapods/v/FSDAirportFlipLabel.svg?style=flat)](http://cocoadocs.org/docsets/FSDAirportFlipLabel)
 [![License](https://img.shields.io/cocoapods/l/FSDAirportFlipLabel.svg?style=flat)](http://cocoadocs.org/docsets/FSDAirportFlipLabel)
 [![Platform](https://img.shields.io/cocoapods/p/FSDAirportFlipLabel.svg?style=flat)](http://cocoadocs.org/docsets/FSDAirportFlipLabel)
 
 ##Example
 
-![Example](https://raw.githubusercontent.com/felix-dumit/FSDAirportFlipLabel/master/example.gif)
+![Example](http://URL)
 
 ## Usage
 
