@@ -12,6 +12,7 @@
 @interface FSDViewController ()
 @property (weak, nonatomic) IBOutlet FSDAirportFlipLabel *airportLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *changeButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @end
 
@@ -22,16 +23,22 @@
     
     self.airportLabel.textSize = 14;
     self.airportLabel.useSound = YES;
-    self.airportLabel.startedFlippingLabelsBlock = ^{ NSLog(@"started flipping"); };
-    self.airportLabel.finishedFlippingLabelsBlock = ^{ NSLog(@"Stopped flipping"); };
-    self.airportLabel.text = @"FSD Label";
     self.airportLabel.fixedLenght = 15;
+    self.airportLabel.flipTextColor = [UIColor whiteColor];
+    self.airportLabel.flipBackGroundColor = [UIColor blackColor];
+    __weak __typeof(self) weakSelf = self;
+    
+    self.airportLabel.startedFlippingLabelsBlock = ^{
+        weakSelf.changeButton.enabled = NO;
+        NSLog(@"started flipping");
+    };
+    self.airportLabel.finishedFlippingLabelsBlock = ^{
+        weakSelf.changeButton.enabled = YES;
+        NSLog(@"Stopped flipping");
+    };
+    
+    self.airportLabel.text = @"FSD Flight 2022";
     // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)changeLabelText:(id)sender {

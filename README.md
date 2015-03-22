@@ -7,7 +7,7 @@
 
 ##Example
 
-![Example](http://gifyu.com/images/temp.gif)
+![Example](http://URL)
 
 ## Usage
 
