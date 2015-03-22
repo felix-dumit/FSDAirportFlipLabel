@@ -7,7 +7,7 @@
 
 ##Example
 
-![Example](http://URL)
+![Example](https://raw.githubusercontent.com/felix-dumit/FSDAirportFlipLabel/master/example.gif)
 
 ## Usage
 
