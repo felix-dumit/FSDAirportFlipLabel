@@ -24,6 +24,10 @@
     self.airportLabel.textSize = 14;
     self.airportLabel.useSound = YES;
     self.airportLabel.fixedLenght = 15;
+    self.airportLabel.flipDuration = 0.1f;
+    self.airportLabel.flipDurationRange = 1.0f;
+    self.airportLabel.numberOfFlips = 10;
+    self.airportLabel.numberOfFlipsRange = 1.0f;
     self.airportLabel.flipTextColor = [UIColor whiteColor];
     self.airportLabel.flipBackGroundColor = [UIColor blackColor];
     __weak __typeof(self) weakSelf = self;
