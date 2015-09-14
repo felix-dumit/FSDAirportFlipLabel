@@ -13,6 +13,7 @@
 @interface FlipAudioPlayer : NSObject
 
 @property NSInteger labelsPlaying;
+@property BOOL volumeFading;
 
 @end
 
@@ -26,6 +27,7 @@ static FlipAudioPlayer *sharedInstance = nil;
     if (sharedInstance == nil) {
         sharedInstance = [[FlipAudioPlayer alloc] init];
         sharedInstance.labelsPlaying = 0;
+        sharedInstance.volumeFading = NO;
     }
     
     return sharedInstance;
@@ -39,28 +41,33 @@ static FlipAudioPlayer *sharedInstance = nil;
                               withExtension:@"aiff"];
         
         flipAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        flipAudioPlayer.numberOfLoops = -1;
     }
     
     return self;
 }
 
-- (void)playFlipSound {
+- (void)playFlipSound:(CGFloat)rate {
     self.labelsPlaying++;
+    self.volumeFading = NO;
     if (!flipAudioPlayer.isPlaying) {
+        flipAudioPlayer.rate = rate;
         flipAudioPlayer.volume = 1.0;
         [flipAudioPlayer play];
     }
 }
 
-- (void)fadeVolume {
+- (void)fadeVolume:(CGFloat)duration {
     // fade by 0.2 every 0.2 seconds if it is last label playing sound
     self.labelsPlaying--;
     if (self.labelsPlaying <= 1) {
-        if (flipAudioPlayer.volume > 0.0) {
-            flipAudioPlayer.volume -= 0.1;
-            [self performSelector:@selector(fadeVolume)
-                       withObject:nil
-                       afterDelay:0.2];
+        if (flipAudioPlayer.volume > 0.0 && !self.volumeFading) {
+            
+            flipAudioPlayer.volume = flipAudioPlayer.volume * 0.7;
+            self.volumeFading = YES;
+            [self performSelector:@selector(fadeVolume:)
+                       withObject:@(duration)
+                       afterDelay:duration];
         }
         else {
             // Stop and get the sound ready for playing again
@@ -70,7 +77,7 @@ static FlipAudioPlayer *sharedInstance = nil;
 }
 
 - (void)stopFlipSound {
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(fadeVolume) object:nil];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(fadeVolume:) object:nil];
     [flipAudioPlayer stop];
     flipAudioPlayer.currentTime = 0;
     [flipAudioPlayer prepareToPlay];
@@ -109,6 +116,10 @@ static FlipAudioPlayer *sharedInstance = nil;
     self.labels = [[NSMutableArray alloc] init];
     self.useSound = YES;
     self.fixedLenght = -1;
+    self.flipDuration = 0.1;
+    self.flipDurationRange = 1.0;
+    self.numberOfFlips = 10;
+    self.numberOfFlipsRange = 1.0;
     self.flipBackGroundColor = [UIColor colorWithRed:0.157 green:0.161 blue:0.165 alpha:1.000];
     self.flipTextColor = [UIColor whiteColor];
     
@@ -183,7 +194,7 @@ static FlipAudioPlayer *sharedInstance = nil;
         }
         
         if (self.useSound && labelsInFlip == 1) {
-            [[FlipAudioPlayer sharedInstance] playFlipSound];
+            [[FlipAudioPlayer sharedInstance] playFlipSound:0.1f/self.flipDuration];
         }
     }
 }
@@ -211,10 +222,12 @@ static FlipAudioPlayer *sharedInstance = nil;
             self.startedFlippingLabelsBlock();
         }
         
+        
+        NSInteger extraFlips = (arc4random() % (NSInteger)(self.numberOfFlips * self.numberOfFlipsRange));
         // animate with between 10 to 20 flips
         [self flipLabel:label
                toLetter:letter
-        inNumberOfFlips:10 + arc4random() % 10];
+        inNumberOfFlips:self.numberOfFlips + extraFlips];
     }
 }
 
@@ -225,10 +238,11 @@ static FlipAudioPlayer *sharedInstance = nil;
 }
 
 - (void)flipLabel:(UILabel *)label toLetter:(NSString *)letter inNumberOfFlips:(NSInteger)flipsToDo {
-    static const CGFloat flipVel = 0.1;
+    
+    CGFloat duration = self.flipDuration + (drand48() * self.flipDurationRange * self.flipDuration);
     
     [UIView transitionWithView:label
-                      duration:flipVel + drand48() * flipVel
+                      duration:duration
                        options:UIViewAnimationOptionTransitionFlipFromTop
                     animations: ^{
                         label.text = flipsToDo == 1 ? letter : [self randomAlphabetCharacter];
@@ -242,7 +256,7 @@ static FlipAudioPlayer *sharedInstance = nil;
                             
                             // if is is last 20% of labels, fade sound
                             if (labelsInFlip <= ceil(0.2 * self.text.length) && self.useSound) {
-                                [[FlipAudioPlayer sharedInstance] fadeVolume];
+                                [[FlipAudioPlayer sharedInstance] fadeVolume:self.flipDuration * labelsInFlip];
                             }
                             
                             //if it is was last label flipping, perform finish block
