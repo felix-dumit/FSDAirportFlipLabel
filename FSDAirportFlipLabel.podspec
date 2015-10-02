@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "FSDAirportFlipLabel"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "UILabel like old Airport Flipping labels"
   s.description      = <<-DESC
                        A UILabel subclass that will animate text changes by flipping the labels like those old airport labels that flip to display flight times.
