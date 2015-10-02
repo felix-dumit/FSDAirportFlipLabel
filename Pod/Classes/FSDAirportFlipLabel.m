@@ -181,6 +181,7 @@ static FlipAudioPlayer *sharedInstance = nil;
         
         // get ith character
         NSString *ichar = @"";
+        
         if (i < [text length]) {
             ichar = [NSString stringWithFormat:@"%c", [text characterAtIndex:i]] ? : @"";
         }
@@ -194,7 +195,7 @@ static FlipAudioPlayer *sharedInstance = nil;
         }
         
         if (self.useSound && labelsInFlip == 1) {
-            [[FlipAudioPlayer sharedInstance] playFlipSound:0.1f/self.flipDuration];
+            [[FlipAudioPlayer sharedInstance] playFlipSound:0.1f / self.flipDuration];
         }
     }
 }
@@ -215,13 +216,11 @@ static FlipAudioPlayer *sharedInstance = nil;
         [self flipLabel:label
                toLetter:letter
         inNumberOfFlips:1];
-    }
-    else {
+    } else {
         // if it is the first label to start flipping, perform start block
         if (labelsInFlip == 1 && self.startedFlippingLabelsBlock) {
             self.startedFlippingLabelsBlock();
         }
-        
         
         NSInteger extraFlips = (arc4random() % (NSInteger)(self.numberOfFlips * self.numberOfFlipsRange));
         // animate with between 10 to 20 flips
@@ -238,7 +237,6 @@ static FlipAudioPlayer *sharedInstance = nil;
 }
 
 - (void)flipLabel:(UILabel *)label toLetter:(NSString *)letter inNumberOfFlips:(NSInteger)flipsToDo {
-    
     CGFloat duration = self.flipDuration + (drand48() * self.flipDurationRange * self.flipDuration);
     
     [UIView transitionWithView:label
@@ -260,12 +258,16 @@ static FlipAudioPlayer *sharedInstance = nil;
                             }
                             
                             //if it is was last label flipping, perform finish block
-                            if (labelsInFlip == 0 && self.finishedFlippingLabelsBlock) {
-                                self.finishedFlippingLabelsBlock();
-                                [[FlipAudioPlayer sharedInstance] stopFlipSound];
+                            if (labelsInFlip == 0) {
+                                if (self.finishedFlippingLabelsBlock) {
+                                    self.finishedFlippingLabelsBlock();
+                                }
+                                
+                                if (self.useSound) {
+                                    [[FlipAudioPlayer sharedInstance] stopFlipSound];
+                                }
                             }
-                        }
-                        else {
+                        } else {
                             [self flipLabel:label
                                    toLetter:letter
                             inNumberOfFlips:flipsToDo - 1];
