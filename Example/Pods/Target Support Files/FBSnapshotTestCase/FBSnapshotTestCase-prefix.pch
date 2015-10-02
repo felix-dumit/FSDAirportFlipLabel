@@ -2,4 +2,3 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#define FB_REFERENCE_IMAGE_DIR = "$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages"

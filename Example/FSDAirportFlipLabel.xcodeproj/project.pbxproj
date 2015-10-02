@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EE45835A6F643BAD1A6A296 /* libPods-FSDAirportFlipLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 398D66875372531D72BBCCF9 /* libPods-FSDAirportFlipLabel.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,7 +21,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		8AFD1432DEC493C61AEDC5F0 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 571C2C979CD854935408B096 /* libPods-Tests.a */; };
+		791258476A2A367C1A4241D5 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B73AA88413D9CE7481F07FE /* libPods-Tests.a */; };
+		CEBD6F31AEB2F4ADF7C42732 /* libPods-FSDAirportFlipLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B86EC833B8F71A32A1DB2D /* libPods-FSDAirportFlipLabel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +37,9 @@
 
 /* Begin PBXFileReference section */
 		31B14B3330A64EDFBDCFE807 /* FSDAirportFlipLabel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FSDAirportFlipLabel.podspec; path = ../FSDAirportFlipLabel.podspec; sourceTree = "<group>"; };
-		398D66875372531D72BBCCF9 /* libPods-FSDAirportFlipLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FSDAirportFlipLabel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B73AA88413D9CE7481F07FE /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42ADEA0FD8C7DE8719CAED53 /* Pods-FSDAirportFlipLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDAirportFlipLabel.release.xcconfig"; path = "Pods/Target Support Files/Pods-FSDAirportFlipLabel/Pods-FSDAirportFlipLabel.release.xcconfig"; sourceTree = "<group>"; };
 		4EFA8B654F08DDCEA09B5F57 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		571C2C979CD854935408B096 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* FSDAirportFlipLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSDAirportFlipLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,6 +64,7 @@
 		84BA03A197D3B6641EE77A6E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CBB61FEACC363D25AF8B5B0F /* Pods-FSDAirportFlipLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSDAirportFlipLabel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FSDAirportFlipLabel/Pods-FSDAirportFlipLabel.debug.xcconfig"; sourceTree = "<group>"; };
 		EFD55E5C4123EADCCA4D36B5 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F3B86EC833B8F71A32A1DB2D /* libPods-FSDAirportFlipLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FSDAirportFlipLabel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				4EE45835A6F643BAD1A6A296 /* libPods-FSDAirportFlipLabel.a in Frameworks */,
+				CEBD6F31AEB2F4ADF7C42732 /* libPods-FSDAirportFlipLabel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				8AFD1432DEC493C61AEDC5F0 /* libPods-Tests.a in Frameworks */,
+				791258476A2A367C1A4241D5 /* libPods-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +132,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				398D66875372531D72BBCCF9 /* libPods-FSDAirportFlipLabel.a */,
-				571C2C979CD854935408B096 /* libPods-Tests.a */,
+				F3B86EC833B8F71A32A1DB2D /* libPods-FSDAirportFlipLabel.a */,
+				3B73AA88413D9CE7481F07FE /* libPods-Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
