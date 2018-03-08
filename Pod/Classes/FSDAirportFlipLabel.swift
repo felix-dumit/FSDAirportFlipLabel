@@ -2,7 +2,7 @@
 //  AirportFlipLabel.m
 //  MyAnimations
 //
-//  Created by Felix Dumit on 3/25/14.
+//  Created by Hanuman Kachwa on 3/08/18.
 //  Copyright (c) 2014 Felix Dumit. All rights reserved.
 //
 
