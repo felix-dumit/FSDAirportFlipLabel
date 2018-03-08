@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/FSDAirportFlipLabel.svg?style=flat)](http://cocoadocs.org/docsets/FSDAirportFlipLabel)
 [![Platform](https://img.shields.io/cocoapods/p/FSDAirportFlipLabel.svg?style=flat)](http://cocoadocs.org/docsets/FSDAirportFlipLabel)
 
-##Example
+## Example
 
 ![Example](https://raw.githubusercontent.com/felix-dumit/FSDAirportFlipLabel/master/example.gif)
 
