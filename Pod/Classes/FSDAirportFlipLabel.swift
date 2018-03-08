@@ -10,7 +10,11 @@ import AVFoundation
 import Foundation
 import UIKit
 
-class AirportFlipLabel: UILabel {
+enum FlipContentType {
+    case numeric, alphanumeric
+}
+
+class FSDAirportFlipLabel: UILabel {
     private var labelsInFlip: Int = 2
     
     private var labels = [UILabel]()
@@ -24,6 +28,8 @@ class AirportFlipLabel: UILabel {
     var flipping: Bool {
         return labelsInFlip > 0
     }
+    
+    var flipContentType: FlipContentType = .numeric
     
     typealias CompletionBlock = () -> Void
     
@@ -119,7 +125,15 @@ class AirportFlipLabel: UILabel {
     }
     
     func randomAlphabetCharacter() -> String {
-        let alphabet = "0123456789"
+        var alphabets = ""
+        switch flipContentType {
+        case .numeric:
+            alphabet = "0123456789"
+        case .alphanumeric:
+            alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXZY0123456789"
+        default:
+            break
+        }
         return "\(alphabet[alphabet.index(alphabet.startIndex, offsetBy: (Int(arc4random()) % alphabet.count))])"
     }
     
